@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace WizardApi.ClientResult
+namespace WizardApi.ClientResults
 {
     public class ClientException : Exception
     {

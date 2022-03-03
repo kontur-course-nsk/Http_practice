@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace WizardApi.ClientResult
+namespace WizardApi.ClientResults
 {
     public sealed class ClientError
     {
