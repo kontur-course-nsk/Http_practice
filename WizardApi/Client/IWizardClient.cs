@@ -12,7 +12,7 @@
         // GET /elixirs?ingredient={ingredientName}&inventorFullName={inventorFullName}
 
         // GET /ingredients/{id}
-        Task<ClientResult<Ingredient>> GetIngredientAsync(string id);
+        Task<Ingredient> GetIngredientAsync(string id);
 
         // POST /feedback
         // body : FeedbackInfo
