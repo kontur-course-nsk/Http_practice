@@ -8,6 +8,6 @@ namespace WizardApi.Models
         public string Feedback { get; set; }
 
         [JsonPropertyName("feedbackType")]
-        public string Type { get; set; }
+        public FeedbackType Type { get; set; }
     }
 }
