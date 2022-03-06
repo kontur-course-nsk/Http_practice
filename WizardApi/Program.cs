@@ -13,7 +13,7 @@ namespace WizardApi
             var service = new WizardService(client);
 
             var ingredient = await client.GetIngredientAsync("not guid");
-            var wizard = await client.GetWizardAsync(new Guid("de736ba2-3a67-4bce-b451-f40bac39fd03"));
+            var wizard = await client.GetWizardAsync("de736ba2-3a67-4bce-b451-f40bac39fd03");
         }
     }
 }
