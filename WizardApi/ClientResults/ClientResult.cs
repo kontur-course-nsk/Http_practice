@@ -1,4 +1,4 @@
-﻿namespace WizardApi.ClientResults
+﻿namespace WizardApi.ClientResult
 {
     public class ClientResult
     {

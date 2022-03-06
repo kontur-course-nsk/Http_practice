@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using WizardApi.Client;
+using WizardApi.ClientResult;
 using WizardApi.Service;
 
 namespace WizardApi.Tests
@@ -45,30 +46,30 @@ namespace WizardApi.Tests
             actualResult.Should().Be(expectedResult);
         }
 
-        //[TestCase(TestData.BadIngredientId, 400, TestData.BadIngredientIdMessage)]
-        //[TestCase(TestData.UnknownIngredientId, 404, TestData.UnknownIngredientMessage)]
-        ////public async Task CountBadOrUnknownIngredientUsagesShouldThrowTest(string ingredientId, int statusCode, string message, string errorId = null)
-        //{
-        //    Func<Task> act = async () => await this.wizardService.CountIngredientUsagesAsync(ingredientId);
+        [TestCase(TestData.BadIngredientId, 400, TestData.BadIngredientIdMessage)]
+        [TestCase(TestData.UnknownIngredientId, 404, TestData.UnknownIngredientMessage)]
+        public async Task CountBadOrUnknownIngredientUsagesShouldThrowTest(string ingredientId, int statusCode, string message, string errorId = null)
+        {
+            Func<Task> act = async () => await this.wizardService.CountIngredientUsagesAsync(ingredientId);
 
-        //    (await act.Should().ThrowAsync<ClientException>())
-        //        .Where(x => x.StatusCode == statusCode && x.Message.Contains(message));
-        //}
+            (await act.Should().ThrowAsync<ClientException>())
+                .Where(x => x.StatusCode == statusCode && x.Message.Contains(message));
+        }
 
-        //[TestCase(TestData.UnknownWizard, 0)]
-        //public async Task CountUnknownWizardIngredientsTest(string wizardId, int expectedResult)
-        //{
-        //    var actualResult = await this.wizardService.CountWizardIngredientsAsync(new Guid(wizardId));
+        [TestCase(TestData.UnknownWizard, 0)]
+        public async Task CountUnknownWizardIngredientsTest(string wizardId, int expectedResult)
+        {
+            var actualResult = await this.wizardService.CountWizardIngredientsAsync(new Guid(wizardId));
 
-        //    actualResult.Should().Be(expectedResult);
-        //}
+            actualResult.Should().Be(expectedResult);
+        }
 
-        //[TestCase(TestData.UnknownPotion, 0)]
-        //public async Task CountUnknownElixirInventorsElixirsTest(string wizardId, int expectedResult)
-        //{
-        //    var actualResult = await this.wizardService.CountWizardIngredientsAsync(new Guid(wizardId));
+        [TestCase(TestData.UnknownPotion, 0)]
+        public async Task CountUnknownElixirInventorsElixirsTest(string wizardId, int expectedResult)
+        {
+            var actualResult = await this.wizardService.CountWizardIngredientsAsync(new Guid(wizardId));
 
-        //    actualResult.Should().Be(expectedResult);
-        //}
+            actualResult.Should().Be(expectedResult);
+        }
     }
 }
